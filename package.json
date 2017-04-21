@@ -1,0 +1,39 @@
+{
+  "name": "esdf2",
+  "version": "0.1.0",
+  "description": "an event-sourcing / domain-driven design base library",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "mocha test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/rkaw92/esdf2.git"
+  },
+  "keywords": [
+    "esdf",
+    "domain-driven",
+    "design",
+    "ddd",
+    "event",
+    "sourcing",
+    "es",
+    "cqrs",
+    "domain"
+  ],
+  "author": "Robert Kawecki <robert+npm@rkaw.pl>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/rkaw92/esdf2/issues"
+  },
+  "homepage": "https://github.com/rkaw92/esdf2#readme",
+  "dependencies": {
+    "uuid": "^3.0.1"
+  },
+  "devDependencies": {
+    "mocha": "^3.2.0"
+  }
+}
