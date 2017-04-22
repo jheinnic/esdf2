@@ -1,6 +1,7 @@
 'use strict';
 
 const assert = require('assert');
+const expect = require('..').testing.expect;
 const EventSourcedAggregateRoot = require('..').reference.EventSourcedAggregateRoot;
 
 class Auction extends EventSourcedAggregateRoot {
@@ -50,13 +51,13 @@ describe('EventSourcedAggregateRoot', function() {
   it('should emit Domain Events as state update', function() {
     const auction = new Auction();
     auction.setID('322fa13d-d1c4-5f36-bb68-9c9d1bbc1c91');
-    let eventCount = 0;
-    auction.addListener(function(event) {
-      eventCount += 1;
-    });
+    const eventTest = expect(auction, [
+      { type: 'AuctionOpened' },
+      { type: 'AuctionOfferPlaced' }
+    ]);
     auction.open('seller1');
     auction.placeOffer({ buyer: 'buyer1', amount: 30 });
-    assert.equal(eventCount, 2);
+    eventTest.finish();
     assert.equal(auction.getHighestOffer().buyer, 'buyer1');
   });
 });
